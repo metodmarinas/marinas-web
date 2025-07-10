@@ -1,1 +1,527 @@
-h1 pagina en construccion
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariñas - Del caos a la calma, con disciplina.</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Tailwind Configuration */
+        /* Define your custom colors and fonts here */
+        :root {
+            --color-primary: #0A192F; /* Azul profundo/petróleo */
+            --color-secondary: #F5F5DC; /* Blanco hueso */
+            --color-accent: #FFD700; /* Amarillo dorado tenue */
+            --color-dark: #1A1A1A; /* Negro/gris carbón */
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .bg-primary { background-color: var(--color-primary); }
+        .text-primary { color: var(--color-primary); }
+        .bg-secondary { background-color: var(--color-secondary); }
+        .text-secondary { color: var(--color-secondary); }
+        .bg-accent { background-color: var(--color-accent); }
+        .text-accent { color: var(--color-accent); }
+        .bg-dark { background-color: var(--color-dark); }
+        .text-dark { color: var(--color-dark); }
+
+        /* Smooth scrolling for navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom styles for the hero section background image/video */
+        .hero-background {
+            background-image: url('https://placehold.co/1920x1080/0A192F/F5F5DC?text=Imagen+de+Fondo+Mariñas'); /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+
+        /* Overlay for hero section */
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+        }
+
+        /* Mobile menu specific styles */
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.hidden {
+            transform: translateX(100%);
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Basic animation for fade-in elements */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="font-inter text-dark">
+
+    <!-- Header & Navigation -->
+    <header class="bg-primary text-secondary p-4 shadow-lg fixed w-full z-50 rounded-b-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-3xl font-playfair font-bold text-accent rounded-md p-2">Mariñas</a>
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex space-x-6 text-lg">
+                <li><a href="#home" class="hover:text-accent transition duration-300 p-2 rounded-md">Inicio</a></li>
+                <li><a href="#about" class="hover:text-accent transition duration-300 p-2 rounded-md">Sobre el Método</a></li>
+                <li><a href="#pillars" class="hover:text-accent transition duration-300 p-2 rounded-md">Pilares</a></li>
+                <li><a href="#shop" class="hover:text-accent transition duration-300 p-2 rounded-md">Tienda</a></li>
+                <li><a href="#blog" class="hover:text-accent transition duration-300 p-2 rounded-md">Blog</a></li>
+                <li><a href="#contact" class="hover:text-accent transition duration-300 p-2 rounded-md">Contacto</a></li>
+                <li><a href="#community" class="hover:text-accent transition duration-300 p-2 rounded-md">Comunidad</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-secondary focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 right-0 h-full w-2/3 bg-primary text-secondary shadow-lg p-6 pt-20 z-40">
+            <ul class="flex flex-col space-y-6 text-xl">
+                <li><a href="#home" class="block hover:text-accent transition duration-300 p-2 rounded-md" onclick="closeMobileMenu()">Inicio</a></li>
+                <li><a href="#about" class="block hover:text-accent transition duration-300 p-2 rounded-md" onclick="closeMobileMenu()">Sobre el Método</a></li>
+                <li><a href="#pillars" class="block hover:text-accent transition duration-300 p-2 rounded-md" onclick="closeMobileMenu()">Pilares</a></li>
+                <li><a href="#shop" class="block hover:text-accent transition duration-300 p-2 rounded-md" onclick="closeMobileMenu()">Tienda</a></li>
+                <li><a href="#blog" class="block hover:text-accent transition duration-300 p-2 rounded-md" onclick="closeMobileMenu()">Blog</a></li>
+                <li><a href="#contact" class="block hover:text-accent transition duration-300 p-2 rounded-md" onclick="closeMobileMenu()">Contacto</a></li>
+                <li><a href="#community" class="block hover:text-accent transition duration-300 p-2 rounded-md" onclick="closeMobileMenu()">Comunidad</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Inicio (Home) -->
+        <section id="home" class="hero-background min-h-screen flex items-center justify-center text-center relative pt-20">
+            <div class="hero-overlay absolute inset-0"></div>
+            <div class="container mx-auto px-4 py-20 relative z-10">
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold text-secondary leading-tight mb-6 animate-fade-in-up">
+                    “Del caos a la calma, con disciplina.”
+                </h1>
+                <p class="text-xl md:text-2xl text-secondary mb-10 max-w-3xl mx-auto opacity-90 animate-fade-in">
+                    Mariñas es un método de transformación que busca llevar a las personas del caos a la calma, con disciplina, integrando la salud física, psicológica y social.
+                </p>
+                <a href="#about" class="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-yellow-400 transition duration-300 shadow-lg transform hover:scale-105">
+                    Conocé el método
+                </a>
+
+                <!-- Llamados a la acción hacia las 3 áreas de salud y hacia la tienda -->
+                <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-secondary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                        <h3 class="text-2xl font-playfair font-bold text-primary mb-4">Salud Física</h3>
+                        <p class="text-dark mb-4">Planes de entrenamiento y nutrición.</p>
+                        <a href="#physical-health" class="text-primary hover:text-accent font-semibold">Explorar &rarr;</a>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                        <h3 class="text-2xl font-playfair font-bold text-primary mb-4">Salud Psicológica</h3>
+                        <p class="text-dark mb-4">Guías de manejo emocional y meditación.</p>
+                        <a href="#psychological-health" class="text-primary hover:text-accent font-semibold">Explorar &rarr;</a>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                        <h3 class="text-2xl font-playfair font-bold text-primary mb-4">Salud Social</h3>
+                        <p class="text-dark mb-4">Cursos de comunicación y liderazgo.</p>
+                        <a href="#social-health" class="text-primary hover:text-accent font-semibold">Explorar &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Sobre mí / Sobre el Método -->
+        <section id="about" class="bg-secondary py-20 px-4">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-primary text-center mb-12">Sobre el Método Mariñas</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-playfair font-bold text-dark mb-4">Propósito</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Mariñas nace del dolor y del despertar. Nace de haber tocado fondo, de mirar al abismo y decidir salir. De darme cuenta que el mundo está dormido: vivimos en automático, consumidos por el pasado, por deseos vacíos, atrapados en sistemas que nos quieren desconectados, dependientes y anestesiados.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Mariñas existe para despertar. Para ayudar a las personas a tomar conciencia de sí mismas, de su cuerpo, su mente y su espíritu. Para que puedan vivir con dirección, con claridad, con propósito. Porque la salud no es solo un cuerpo sin enfermedad. Es vivir despierto. Es vivir con poder.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400/0A192F/F5F5DC?text=Imagen+de+Jonathan+Mariñas" alt="Jonathan Mariñas" class="rounded-lg shadow-lg w-full">
+                        <p class="text-center text-gray-600 mt-4 text-sm">Biografía de Jonathan Mariñas (próximamente)</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-3xl font-playfair font-bold text-dark mb-4">Misión</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            La misión del Método Mariñas es brindar herramientas prácticas y accesibles para que las personas desarrollen una salud integral: física, psicológica y social. Lo hacemos a través de contenidos que despiertan conciencia, planes de entrenamiento que respetan el cuerpo, prácticas mentales que entrenan la mente, y una filosofía que promueve la conexión humana real. Mariñas acompaña a las personas que están perdidas, estancadas o sin rumbo, a tomar acción y construir una vida con propósito, disciplina y verdad.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-playfair font-bold text-dark mb-4">Visión</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Ser una marca referente en salud integral en habla hispana, que ayude a miles de personas a salir del estancamiento y volver a vivir con propósito. Que Mariñas no sea solo un método, sino un movimiento: una comunidad consciente, fuerte, despierta y disciplinada, donde se entrena el cuerpo, se educa la mente y se recupera la conexión humana. Inspirar a una nueva generación que ya no acepte una vida vacía, ni un cuerpo débil, ni una mente dispersa. Porque Mariñas no es una moda: es una forma de vivir.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                    <h3 class="text-3xl font-playfair font-bold text-dark text-center mb-8">Valores</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <p class="font-bold text-primary text-xl mb-2">Disciplina</p>
+                            <p class="text-gray-700 text-sm">El cambio real se logra con constancia.</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <p class="font-bold text-primary text-xl mb-2">Coherencia</p>
+                            <p class="text-gray-700 text-sm">Predicar con el ejemplo, vivir lo que se enseña.</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <p class="font-bold text-primary text-xl mb-2">Conciencia</p>
+                            <p class="text-gray-700 text-sm">Vivir despierto, con dirección y propósito.</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <p class="font-bold text-primary text-xl mb-2">Tribu</p>
+                            <p class="text-gray-700 text-sm">Recuperar la conexión social real, no virtual.</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <p class="font-bold text-primary text-xl mb-2">Simplicidad</p>
+                            <p class="text-gray-700 text-sm">Herramientas prácticas, profundas y sin humo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <h3 class="text-3xl font-playfair font-bold text-dark mb-6">Las Tres Dimensiones del Método</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-xl">
+                            <h4 class="text-2xl font-playfair font-bold text-primary mb-3">Salud Física</h4>
+                            <p class="text-gray-700">Entrenamiento, nutrición y hábitos para un cuerpo fuerte y vital.</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-xl">
+                            <h4 class="text-2xl font-playfair font-bold text-primary mb-3">Salud Psicológica</h4>
+                            <p class="text-gray-700">Manejo emocional, foco y prácticas para una mente clara.</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-xl">
+                            <h4 class="text-2xl font-playfair font-bold text-primary mb-3">Salud Social</h4>
+                            <p class="text-gray-700">Comunicación, liderazgo y conexión humana real para una vida plena.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Sección por cada pilar del método -->
+        <section id="pillars" class="py-20 px-4 bg-gray-100">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-primary text-center mb-16">Nuestros Pilares de Transformación</h2>
+
+                <!-- Salud Física -->
+                <div id="physical-health" class="mb-20 bg-secondary p-8 rounded-lg shadow-xl flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0">
+                        <h3 class="text-3xl md:text-4xl font-playfair font-bold text-primary mb-4">Salud Física</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Desarrolla un cuerpo fuerte, ágil y resistente. Nuestros planes están diseñados para adaptarse a tu nivel, desde principiantes hasta avanzados, e incluyen rutinas de fuerza, cardio, movilidad y flexibilidad. Además, te ofrecemos guías de nutrición funcional para optimizar tu energía y bienestar.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 mb-6">
+                            <li>Planes de entrenamiento (principiantes, intermedios, avanzados)</li>
+                            <li>Rutinas de fuerza, cardio, movilidad y flexibilidad</li>
+                            <li>Planes de nutrición funcional</li>
+                        </ul>
+                        <a href="#shop-physical" class="bg-accent text-primary font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition duration-300 shadow-md">
+                            Ver planes físicos &rarr;
+                        </a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/0A192F/F5F5DC?text=Salud+Física" alt="Salud Física" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+
+                <!-- Salud Psicológica -->
+                <div id="psychological-health" class="mb-20 bg-secondary p-8 rounded-lg shadow-xl flex flex-col md:flex-row-reverse items-center">
+                    <div class="md:w-1/2 md:pl-8 mb-8 md:mb-0">
+                        <h3 class="text-3xl md:text-4xl font-playfair font-bold text-primary mb-4">Salud Psicológica</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Entrena tu mente para la claridad, el foco y el manejo emocional. Te ofrecemos guías prácticas para gestionar la ansiedad, mejorar la concentración y cultivar una mentalidad resiliente. Incluye ejercicios mentales, meditaciones guiadas y reflexiones profundas.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 mb-6">
+                            <li>Guías para el manejo emocional, la ansiedad, el foco</li>
+                            <li>Ejercicios mentales, meditaciones, audios, reflexiones</li>
+                        </ul>
+                        <a href="#shop-psychological" class="bg-accent text-primary font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition duration-300 shadow-md">
+                            Ver guías psicológicas &rarr;
+                        </a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/0A192F/F5F5DC?text=Salud+Psicológica" alt="Salud Psicológica" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+
+                <!-- Salud Social -->
+                <div id="social-health" class="bg-secondary p-8 rounded-lg shadow-xl flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0">
+                        <h3 class="text-3xl md:text-4xl font-playfair font-bold text-primary mb-4">Salud Social</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Recupera la conexión humana real y desarrolla habilidades para prosperar en tus relaciones. Nuestros cursos y guías te enseñarán sobre comunicación efectiva, liderazgo auténtico y cómo construir una "tribu" consciente que te impulse.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 mb-6">
+                            <li>Cursos y guías sobre comunicación, liderazgo, relaciones humanas</li>
+                            <li>Comunidad Mariñas: una tribu consciente</li>
+                        </ul>
+                        <a href="#shop-social" class="bg-accent text-primary font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition duration-300 shadow-md">
+                            Ver recursos sociales &rarr;
+                        </a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/0A192F/F5F5DC?text=Salud+Social" alt="Salud Social" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Tienda / Comprar -->
+        <section id="shop" class="bg-dark text-secondary py-20 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-accent text-center mb-16">Tienda Mariñas</h2>
+                <p class="text-center text-lg mb-12 max-w-2xl mx-auto">
+                    Encuentra las herramientas que necesitas para tu transformación. Explora nuestros productos digitales y suscripciones.
+                </p>
+
+                <!-- Subcategoría: Salud Física -->
+                <div id="shop-physical" class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-secondary mb-8 text-center">Salud Física</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Product Card 1 -->
+                        <div class="bg-primary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/400x250/F5F5DC/0A192F?text=Plan+Fuerza+Inicial" alt="Plan de Fuerza Inicial" class="rounded-md mb-4 w-full">
+                            <h4 class="text-xl font-playfair font-bold text-accent mb-2">Plan de Fuerza Inicial</h4>
+                            <p class="text-gray-300 text-sm mb-4">Rutinas para empezar a construir tu base de fuerza. Ideal para principiantes.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-secondary">$29.99</span>
+                                <button class="bg-accent text-primary font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition duration-300">Comprar</button>
+                            </div>
+                        </div>
+                        <!-- Product Card 2 -->
+                        <div class="bg-primary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/400x250/F5F5DC/0A192F?text=Guía+Nutrición+Básica" alt="Guía de Nutrición Básica" class="rounded-md mb-4 w-full">
+                            <h4 class="text-xl font-playfair font-bold text-accent mb-2">Guía de Nutrición Básica</h4>
+                            <p class="text-gray-300 text-sm mb-4">Principios de alimentación funcional para optimizar tu energía y bienestar.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-secondary">$19.99</span>
+                                <button class="bg-accent text-primary font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition duration-300">Comprar</button>
+                            </div>
+                        </div>
+                        <!-- Product Card 3 -->
+                        <div class="bg-primary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/400x250/F5F5DC/0A192F?text=Plan+Movilidad+Completa" alt="Plan de Movilidad Completa" class="rounded-md mb-4 w-full">
+                            <h4 class="text-xl font-playfair font-bold text-accent mb-2">Plan de Movilidad Completa</h4>
+                            <p class="text-gray-300 text-sm mb-4">Mejora tu flexibilidad y rango de movimiento con rutinas diarias.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-secondary">$24.99</span>
+                                <button class="bg-accent text-primary font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition duration-300">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subcategoría: Salud Psicológica -->
+                <div id="shop-psychological" class="mb-16">
+                    <h3 class="text-3xl font-playfair font-bold text-secondary mb-8 text-center">Salud Psicológica</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Product Card 4 -->
+                        <div class="bg-primary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/400x250/F5F5DC/0A192F?text=Guía+Manejo+Emocional" alt="Guía de Manejo Emocional" class="rounded-md mb-4 w-full">
+                            <h4 class="text-xl font-playfair font-bold text-accent mb-2">Guía de Manejo Emocional</h4>
+                            <p class="text-gray-300 text-sm mb-4">Herramientas prácticas para identificar y gestionar tus emociones.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-secondary">$34.99</span>
+                                <button class="bg-accent text-primary font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition duration-300">Comprar</button>
+                            </div>
+                        </div>
+                        <!-- Product Card 5 -->
+                        <div class="bg-primary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/400x250/F5F5DC/0A192F?text=Meditaciones+Guiadas" alt="Audios de Meditaciones Guiadas" class="rounded-md mb-4 w-full">
+                            <h4 class="text-xl font-playfair font-bold text-accent mb-2">Audios de Meditaciones Guiadas</h4>
+                            <p class="text-gray-300 text-sm mb-4">Colección de audios para la relajación, el foco y la conciencia plena.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-secondary">$29.99</span>
+                                <button class="bg-accent text-primary font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition duration-300">Comprar</button>
+                            </div>
+                        </div>
+                        <!-- Product Card 6 -->
+                        <div class="bg-primary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/400x250/F5F5DC/0A192F?text=Ejercicios+Foco+Mental" alt="Ejercicios para el Foco Mental" class="rounded-md mb-4 w-full">
+                            <h4 class="text-xl font-playfair font-bold text-accent mb-2">Ejercicios para el Foco Mental</h4>
+                            <p class="text-gray-300 text-sm mb-4">Técnicas y ejercicios para mejorar tu concentración y productividad.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-secondary">$22.99</span>
+                                <button class="bg-accent text-primary font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition duration-300">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subcategoría: Salud Social -->
+                <div id="shop-social">
+                    <h3 class="text-3xl font-playfair font-bold text-secondary mb-8 text-center">Salud Social</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Product Card 7 -->
+                        <div class="bg-primary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/400x250/F5F5DC/0A192F?text=Curso+Comunicación" alt="Curso de Comunicación Efectiva" class="rounded-md mb-4 w-full">
+                            <h4 class="text-xl font-playfair font-bold text-accent mb-2">Curso de Comunicación Efectiva</h4>
+                            <p class="text-gray-300 text-sm mb-4">Aprende a expresarte con claridad y a construir relaciones sólidas.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-secondary">$49.99</span>
+                                <button class="bg-accent text-primary font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition duration-300">Comprar</button>
+                            </div>
+                        </div>
+                        <!-- Product Card 8 -->
+                        <div class="bg-primary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/400x250/F5F5DC/0A192F?text=Guía+Liderazgo+Auténtico" alt="Guía de Liderazgo Auténtico" class="rounded-md mb-4 w-full">
+                            <h4 class="text-xl font-playfair font-bold text-accent mb-2">Guía de Liderazgo Auténtico</h4>
+                            <p class="text-gray-300 text-sm mb-4">Desarrolla tu potencial de liderazgo desde la autenticidad y el propósito.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-secondary">$39.99</span>
+                                <button class="bg-accent text-primary font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition duration-300">Comprar</button>
+                            </div>
+                        </div>
+                        <!-- Product Card 9 -->
+                        <div class="bg-primary p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                            <img src="https://placehold.co/400x250/F5F5DC/0A192F?text=Habilidades+Sociales" alt="Taller de Habilidades Sociales" class="rounded-md mb-4 w-full">
+                            <h4 class="text-xl font-playfair font-bold text-accent mb-2">Taller de Habilidades Sociales</h4>
+                            <p class="text-gray-300 text-sm mb-4">Mejora tus interacciones y construye una red de apoyo significativa.</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-secondary">$29.99</span>
+                                <button class="bg-accent text-primary font-bold py-2 px-5 rounded-full hover:bg-yellow-400 transition duration-300">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-gray-400 mt-12 text-sm">
+                    *Nota: La integración real con pasarelas de pago (Mercado Pago, PayPal) requeriría desarrollo backend y APIs. Estos botones son solo placeholders.
+                </p>
+            </div>
+        </section>
+
+        <!-- 5. Blog / Historias -->
+        <section id="blog" class="bg-secondary py-20 px-4">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-primary text-center mb-16">Blog & Historias</h2>
+                <p class="text-center text-lg text-gray-700 mb-12">
+                    Reflexiones, contenido estoico, experiencias personales y más para inspirar tu camino.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Blog Post 1 -->
+                    <article class="bg-white p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x350/0A192F/F5F5DC?text=Salud+Real" alt="Qué es estar realmente sano" class="rounded-md mb-6 w-full">
+                        <h3 class="text-2xl font-playfair font-bold text-primary mb-3">¿Qué es estar realmente sano?</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Exploramos la verdadera definición de salud, más allá de la ausencia de enfermedad. Un enfoque integral que abarca cuerpo, mente y espíritu.
+                        </p>
+                        <a href="#" class="text-accent hover:underline font-semibold">Leer más &rarr;</a>
+                    </article>
+                    <!-- Blog Post 2 -->
+                    <article class="bg-white p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x350/0A192F/F5F5DC?text=Poder+Disciplina" alt="El poder de la disciplina" class="rounded-md mb-6 w-full">
+                        <h3 class="text-2xl font-playfair font-bold text-primary mb-3">El poder de la disciplina</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Descubre cómo la disciplina no es una restricción, sino la llave para la libertad y el logro de tus metas más profundas.
+                        </p>
+                        <a href="#" class="text-accent hover:underline font-semibold">Leer más &rarr;</a>
+                    </article>
+                    <!-- Blog Post 3 (Example of video embed) -->
+                    <article class="bg-white p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 col-span-1 md:col-span-2">
+                        <h3 class="text-2xl font-playfair font-bold text-primary mb-3">Video: Despertando la Conciencia</h3>
+                        <div class="relative w-full" style="padding-top: 56.25%;"> <!-- 16:9 Aspect Ratio -->
+                            <iframe class="absolute top-0 left-0 w-full h-full rounded-md"
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mt-4">
+                            Un video inspirador sobre cómo iniciar tu camino hacia una vida más consciente y con propósito.
+                        </p>
+                    </article>
+
+                    <!-- Gemini API Integration: Stoic Reflection Generator -->
+                    <article class="bg-white p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 col-span-1 md:col-span-2">
+                        <h3 class="text-2xl font-playfair font-bold text-primary mb-3">Genera tu Reflexión Estoica Personalizada ✨</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Obtén una reflexión inspirada en la filosofía estoica sobre cualquier tema que te interese.
+                        </p>
+                        <div class="mb-4">
+                            <label for="stoic-topic" class="block text-gray-700 text-sm font-bold mb-2">Tema para la reflexión:</label>
+                            <input type="text" id="stoic-topic" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-primary" placeholder="Ej: La paciencia, el cambio, el miedo...">
+                        </div>
+                        <button id="generate-stoic-reflection" class="bg-accent text-primary font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition duration-300 shadow-md">
+                            Generar Reflexión ✨
+                        </button>
+                        <div id="stoic-reflection-output" class="mt-6 p-4 bg-gray-100 rounded-lg border border-gray-300 text-gray-800 hidden">
+                            <p class="font-bold mb-2">Tu Reflexión:</p>
+                            <p id="reflection-text" class="leading-relaxed"></p>
+                            <div id="reflection-loading" class="hidden text-center text-primary mt-4">
+                                <div class="animate-spin inline-block w-6 h-6 border-4 border-primary border-t-transparent rounded-full"></div>
+                                <p>Generando reflexión...</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contacto -->
+        <section id="contact" class="bg-primary text-secondary py-20 px-4">
+            <div class="container mx-auto max-w-2xl">
+                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-accent text-center mb-16">Contacto</h2>
+                <p class="text-center text-lg mb-12 opacity-90">
+                    ¿Tienes preguntas o quieres saber más? ¡Contáctanos!
+                </p>
+
+                <form class="bg-secondary p-8 rounded-lg shadow-xl text-dark">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-primary" placeholder="Tu Nombre" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-primary" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Mensaje:</label>
+                        <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-primary" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <button type="submit" class="bg-accent text-primary font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition duration-300 shadow-lg transform hover:scale-105">
+                            Enviar Mensaje
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-12 text-center">
+
